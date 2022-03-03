@@ -7,7 +7,9 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
 @Repository
+*/
 public class ForumMem {
 
     private final HashMap<Integer, Post> posts = new HashMap<>();
