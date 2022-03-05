@@ -13,6 +13,8 @@
     <title>Форум job4j</title>
 </head>
 <body>
+<a href="<c:url value='/reg'/>">Регистрация</a>
+
 <c:if test="${not empty errorMessge}">
     <div style="color:red; font-weight: bold; margin: 30px 0px;">
             ${errorMessge}
