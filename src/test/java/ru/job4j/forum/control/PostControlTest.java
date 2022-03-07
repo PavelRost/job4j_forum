@@ -66,6 +66,7 @@ public class PostControlTest {
         assertThat(argument.getValue().getName(), is("Куплю ладу-грант. Дорого."));
     }
 
+    @Ignore
     @Test
     @WithMockUser
     public void shouldReturnDefaultMessagePostUpdate() throws Exception {

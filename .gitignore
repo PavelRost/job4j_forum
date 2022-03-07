@@ -2,3 +2,4 @@
 target
 *.iml
 testdb.mv.db
+testdb.trace.db
