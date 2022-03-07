@@ -6,7 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.transaction.annotation.Transactional;
 import ru.job4j.forum.model.Post;
 
-public interface PostRepository extends CrudRepository<Post, Long> {
+public interface PostRepository extends CrudRepository<Post, Integer> {
 
     @Transactional
     @Modifying

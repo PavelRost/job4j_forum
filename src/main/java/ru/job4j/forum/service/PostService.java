@@ -47,7 +47,7 @@ public class PostService {
     }
 
     public Post findById(int id) {
-        return getAll().stream().filter(post -> post.getId() == id).findFirst().get();
+        return posts.findById(id).get();
     }
 
     public void updatePost(int id, Post post) {
