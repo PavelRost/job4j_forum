@@ -47,7 +47,7 @@ public class PostControlTest {
     @Test
     @WithMockUser
     public void shouldReturnDefaultMessageFromEdit() throws Exception {
-        this.mockMvc.perform(get("/updateGet"))
+        this.mockMvc.perform(get("/updateGet").param("id", "1"))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(view().name("edit"));
