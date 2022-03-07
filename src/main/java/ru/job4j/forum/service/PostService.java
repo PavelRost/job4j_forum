@@ -54,7 +54,6 @@ public class PostService {
         posts.updatePost(post.getName(), id);
     }
 
-
     /**
      * public Collection<Post> getAll() {
      *         return forumMem.getAllPosts();

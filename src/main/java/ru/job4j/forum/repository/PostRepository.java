@@ -12,5 +12,4 @@ public interface PostRepository extends CrudRepository<Post, Integer> {
     @Modifying
     @Query("update Post p set p.name = ?1 where p.id = ?2")
     void updatePost(String name, int id);
-
 }
