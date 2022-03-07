@@ -27,6 +27,10 @@ public class PostService {
         this.authorities = authorities;
     }
 
+    public User findByName(String username) {
+        return users.findByUsername(username).orElse(null);
+    }
+
     public void save(User user) {
         users.save(user);
     }
