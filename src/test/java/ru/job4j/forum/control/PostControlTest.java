@@ -65,23 +65,4 @@ public class PostControlTest {
         verify(posts).addPost(argument.capture());
         assertThat(argument.getValue().getName(), is("Куплю ладу-грант. Дорого."));
     }
-
-    @Ignore
-    @Test
-    @WithMockUser
-    public void shouldReturnDefaultMessagePostUpdate() throws Exception {
-        this.mockMvc.perform(post("/save")
-                        .param("name","Старый топик"));
-        ArgumentCaptor<Post> argument = ArgumentCaptor.forClass(Post.class);
-        verify(posts).addPost(argument.capture());
-
-        this.mockMvc.perform(post("/updatePost")
-                        .param("id", "1")
-                        .param("name","Новый топик"))
-                .andDo(print())
-                .andExpect(status().is3xxRedirection());
-        ArgumentCaptor<Post> argument2 = ArgumentCaptor.forClass(Post.class);
-        verify(posts).updatePost(argument.getValue().getId(), argument2.capture());
-        assertEquals("Новый топик", argument.getValue().getName());
-    }
 }
