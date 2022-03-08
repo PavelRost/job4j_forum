@@ -15,18 +15,28 @@ import ru.job4j.forum.service.PostService;
 @Controller
 public class LoginControl {
 
-    private final PostService service;
-
-    public LoginControl(PostService service) {
-        this.service = service;
-    }
-
     @GetMapping("/login")
-    public String loginPage(@ModelAttribute User user) {
-        User userSearch = service.findByName(user.getUsername());
-        if (userSearch == null) {
-            return "login";
+    public String loginPage(@RequestParam(value = "error", required = false) String error,
+                            @RequestParam(value = "logout", required = false) String logout,
+                            Model model) {
+        String errorMessge = null;
+        if (error != null) {
+            errorMessge = "Username or Password is incorrect !!";
         }
-        return "index";
+        if (logout != null) {
+            errorMessge = "You have been successfully logged out !!";
+        }
+        model.addAttribute("errorMessge", errorMessge);
+        return "login";
     }
+
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth != null) {
+            new SecurityContextLogoutHandler().logout(request, response, auth);
+        }
+        return "redirect:/login?logout=true";
+    }
+
 }

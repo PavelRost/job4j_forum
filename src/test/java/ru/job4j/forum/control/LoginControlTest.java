@@ -22,16 +22,15 @@ public class LoginControlTest {
     @Autowired
     private MockMvc mockMvc;
 
-    /**
-     * @Test
-     *     @WithMockUser
-     *     public void shouldReturnDefaultMessageFromLogin() throws Exception {
-     *         this.mockMvc.perform(get("/login"))
-     *                 .andDo(print())
-     *                 .andExpect(status().isOk())
-     *                 .andExpect(view().name("login"));
-     *     }
-     *     *
-     */
+    @Test
+    @WithMockUser
+    public void shouldReturnDefaultMessageFromLogin() throws Exception {
+        this.mockMvc.perform(get("/login"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(view().name("login"));
+    }
+
+
 
 }
